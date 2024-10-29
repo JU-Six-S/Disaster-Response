@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "343489347974",
+    "project_id": "ndrs-97796",
+    "storage_bucket": "ndrs-97796.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:343489347974:android:5ef0da210250b133ec6c07",
+        "android_client_info": {
+          "package_name": "com.jusixs.ndrs"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDXJv8PUSVYK5EKFUv9yD3Z8XrdHcC1JME"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
