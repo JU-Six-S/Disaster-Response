@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+android:padding="16dp">
+
+<!-- Progress bar for loading indication -->
+<ProgressBar
+    android:id="@+id/progressBar"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:visibility="gone" />
+
+<!-- Error message for displaying any issues while loading data -->
+<TextView
+    android:id="@+id/error_message"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Failed to load guidelines. Please try again."
+    android:layout_gravity="center"
+    android:padding="8dp"
+    android:visibility="gone"
+    android:textColor="@android:color/holo_red_dark"
+    android:textSize="16sp" />
+
+<!-- RecyclerView for displaying the list of guidelines -->
+<androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/recyclerViewGuidelines"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="8dp"
+    android:scrollbars="vertical" />
+</LinearLayout>
