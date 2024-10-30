@@ -2,4 +2,6 @@
     <string name="app_name">NDRS</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="training_sessions">Training Sessions</string>
+    <string name="register">Register</string>
 </resources>

@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <!-- Primary brand colors -->
+    <color name="primaryColor">#1976D2</color> <!-- A shade of blue -->
+    <color name="primaryDarkColor">#004BA0</color> <!-- Darker shade of blue for the status bar -->
+
+    <!-- Secondary color for accent elements -->
+    <color name="secondaryColor">#FF5722</color> <!-- A shade of orange -->
+
+    <!-- Text colors -->
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="gray">#757575</color> <!-- Gray for subtitles and secondary text -->
+
+    <!-- Background color -->
+    <color name="backgroundColor">#FAFAFA</color> <!-- Light gray background for pages -->
 </resources>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Base application theme -->
+    <style name="Theme.DisasterResponse" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <!-- Primary color setup -->
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryVariant">@color/primaryDarkColor</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+        <!-- Secondary color setup -->
+        <item name="colorSecondary">@color/secondaryColor</item>
+        <item name="colorOnSecondary">@color/white</item>
+
+        <!-- Status bar and navigation bar colors -->
+        <item name="android:statusBarColor">@color/primaryDarkColor</item>
+        <item name="android:navigationBarColor">@color/primaryColor</item>
+
+        <!-- Customize the app font (optional) -->
+        <item name="android:fontFamily">@font/roboto_regular</item>
+    </style>
+
+    <!-- Text style for large titles -->
+    <style name="TextAppearance.DisasterResponse.Title" parent="TextAppearance.MaterialComponents.Headline5">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <!-- Text style for subtitles or secondary text -->
+    <style name="TextAppearance.DisasterResponse.Subtitle" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/gray</item>
+    </style>
+
+    <!-- Custom button style -->
+    <style name="ButtonStyle.DisasterResponse" parent="Widget.MaterialComponents.Button">
+        <item name="android:backgroundTint">@color/secondaryColor</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+</resources>
+
