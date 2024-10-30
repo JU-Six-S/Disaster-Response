@@ -1,19 +1,238 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="#FFB6C1"
+    android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="vertical"
+        android:padding="16dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Inform Media"
+            android:textStyle="bold"
+            android:textColor="#FF0000"
+            android:textSize="35sp"/>
+
+        <!-- Horizontal black line -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#000000"
+            android:layout_marginTop="10dp" />
+
+        <!-- Nature of Disaster Spinner -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1. Nature of Disaster"
+            android:textStyle="bold"
+            android:textColor="#0000FF"
+        android:textSize="24sp" />
+
+        <Spinner
+            android:id="@+id/spinnerDisaster"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Affected Areas EditText -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2. Affected Area(s)"
+            android:textStyle="bold"
+            android:textSize="24sp"
+        android:textColor="#0000FF" />  <!-- Blue Color -->
+
+        <EditText
+            android:id="@+id/editTextAffectedAreas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/affected_areas_hint" />
+
+        <!-- Current Status Spinner -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3. Current Status"
+            android:textStyle="bold"
+            android:textSize="24sp"
+        android:textColor="#0000FF" />  <!-- Blue Color -->
+
+        <Spinner
+            android:id="@+id/spinnerCurrentStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Timestamp TextView -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4. Timestamp"
+            android:textStyle="bold"
+            android:textSize="24sp"
+        android:textColor="#0000FF" />
+
+
+        <TextView
+            android:id="@+id/textViewTimestamp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+        <!-- Upload Image Section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5. Upload image"
+            android:textStyle="bold"
+            android:textSize="24sp"
+        android:textColor="#0000FF" />  <!-- Blue Color -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imagePreview"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@android:color/white" />
+
+            <Button
+                android:id="@+id/buttonSelectImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/select_image"
+                android:backgroundTint="#FF7F50" /> <!-- Coral Color -->
+        </LinearLayout>
+
+        <!-- Urgent Message Instructions EditText -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="24sp"
+        android:textColor="#0000FF"
+        android:text="6. Message/Instrcutions" />
+
+        <EditText
+            android:id="@+id/editTextUrgentMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/urgent_message_hint" />
+
+        <!-- Select Media Channels Checkboxes with Spinners -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="24sp"
+        android:textColor="#0000FF"
+        android:text="7. Select Media Channel(s)" />
+
+        <!-- Media Channels (with checkboxes and conditional spinners) -->
+        <!-- TV Channel -->
+        <CheckBox
+            android:id="@+id/checkBoxTV"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_channel" />
+
+        <Spinner
+            android:id="@+id/spinnerTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+
+        <!-- Radio Channel -->
+        <CheckBox
+            android:id="@+id/checkBoxRadio"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/radio_channel" />
+
+        <Spinner
+            android:id="@+id/spinnerRadio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+
+        <!-- Online News Channel -->
+        <CheckBox
+            android:id="@+id/checkBoxOnlineNews"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="@string/online_news_channel" />
+
+        <Spinner
+            android:id="@+id/spinnerOnlineNews"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+
+        <!-- Social Media Channel -->
+        <CheckBox
+            android:id="@+id/checkBoxSocialMedia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="@string/social_media_channel" />
+
+        <Spinner
+            android:id="@+id/spinnerSocialMedia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+
+        <!-- Preview Notification Button -->
+        <Button
+            android:id="@+id/buttonPreviewNotification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="#000000"
+            android:text="@string/preview_notification"
+            android:backgroundTint="#FFD700" /> <!-- Gold Color -->
+
+        <!-- Preview Display Area -->
+        <TextView
+            android:id="@+id/textViewPreview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:paddingTop="16dp" />
+
+        <!-- Save Draft and Send Notification Buttons -->
+
+
+            <Button
+                android:id="@+id/buttonSaveDraft"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#FF6666"
+                android:layout_gravity="center"
+                android:text="@string/save_draft" />
+
+            <Button
+                android:id="@+id/buttonSendNotification"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#008000"
+                android:layout_gravity="center"
+                android:text="@string/send_notification" />
+
+    </LinearLayout>
+</ScrollView>
