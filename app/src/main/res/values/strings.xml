@@ -32,13 +32,13 @@
     </string-array>
 
     <string-array name="channel_options">
-        <item>TV1</item>
-        <item>TV2</item>
-        <item>TV3</item>
-        <item>Radio1</item>
-        <item>Radio2</item>
-        <item>Online News1</item>
-        <item>Social Media1</item>
-        <item>Social Media2</item>
+        <item>BTV</item>
+        <item>Channel-i</item>
+        <item>Jamuna Television</item>
+        <item>Radio spicy 98.2</item>
+        <item>Radio 98.1</item>
+        <item>Prothom Alo online</item>
+        <item>Facebook page</item>
+        <item>Instagram</item>
     </string-array>
 </resources>

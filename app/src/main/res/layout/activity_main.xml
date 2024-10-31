@@ -30,7 +30,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1. Nature of Disaster"
+            android:text="1. Select Nature of Disaster"
             android:textStyle="bold"
             android:textColor="#0000FF"
         android:textSize="24sp" />
