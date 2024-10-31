@@ -4,8 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,12 +17,14 @@ import com.jusixs.ndrs.model.NewsItem;
 import com.jusixs.ndrs.viewmodel.NewsViewModel;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Activity to display the list of news items.
  */
 public class NewsListActivity extends AppCompatActivity {
     private NewsViewModel newsViewModel;
+    private RecyclerView newsRecyclerView;
     private NewsAdapter newsAdapter;
 
     @Override
@@ -34,7 +36,10 @@ public class NewsListActivity extends AppCompatActivity {
         newsViewModel = new ViewModelProvider(this).get(NewsViewModel.class);
 
         // Set up RecyclerView
-        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        newsRecyclerView = findViewById(R.id.recyclerView);
+        newsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        // Initialize the adapter with a listener
         newsAdapter = new NewsAdapter(new ArrayList<>(), new NewsItemListener() {
             @Override
             public void onEditNews(NewsItem newsItem) {
@@ -47,12 +52,15 @@ public class NewsListActivity extends AppCompatActivity {
             }
         });
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(newsAdapter);
+        newsRecyclerView.setAdapter(newsAdapter);
 
-        // Observe news items
-        newsViewModel.getAllNews().observe(this, newsItems -> {
-            newsAdapter.updateNewsList(newsItems);
+        // Observe the LiveData for all news items
+        newsViewModel.getAllNews().observe(this, new Observer<List<NewsItem>>() {
+            @Override
+            public void onChanged(List<NewsItem> newsItems) {
+                // Update the adapter when data changes
+                newsAdapter.setNewsItems(newsItems); // Ensure you have a method to set items
+            }
         });
     }
 

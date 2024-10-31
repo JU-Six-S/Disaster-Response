@@ -24,6 +24,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
 {
     private final List<NewsItem> newsList;
     private final NewsItemListener listener;
+    private List<NewsItem> newsItems;
 
     /**
      * Constructs a NewsAdapter with the specified news items and listener.
@@ -99,6 +100,11 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
         newsList.clear();
         newsList.addAll(newsItems);
         notifyDataSetChanged();
+    }
+
+    public void setNewsItems(List<NewsItem> newsItems) {
+        this.newsItems = newsItems;
+        notifyDataSetChanged(); // Notify the adapter of data changes
     }
 
     /**
