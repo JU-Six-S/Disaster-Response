@@ -8,15 +8,20 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+
 import com.jusixs.ndrs.R;
 import com.jusixs.ndrs.model.NewsItem;
 import com.jusixs.ndrs.viewmodel.NewsViewModel;
 
+/**
+ * Main activity for posting news items and handling user interactions.
+ */
 public class MainActivity extends AppCompatActivity {
 
     private NewsViewModel newsViewModel;

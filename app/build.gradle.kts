@@ -4,6 +4,8 @@ plugins {
 //    id("com.google.gms.google-services")
 //    alias(libs.plugins.kotlin.android)
 //    alias(libs.plugins.google.services)
+    //kotlin("android")
+//    id("kotlin-kapt")
 
 }
 
@@ -51,5 +53,9 @@ dependencies {
     implementation(libs.firebase.analytics.ktx)
     implementation(libs.firebase.firestore.ktx)
     implementation(libs.google.firebase.analytics.ktx)
+
+    // glide dependency
+    implementation("com.github.bumptech.glide:glide:4.15.1")
+    annotationProcessor("com.github.bumptech.glide:compiler:4.12.0")
 }
 apply(plugin = "com.google.gms.google-services")
