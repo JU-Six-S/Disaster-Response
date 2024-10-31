@@ -1,19 +1,334 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".MainActivity">
 
+    <!-- Header Text -->
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/textView3"
+        android:layout_width="396dp"
+        android:layout_height="70dp"
+        android:gravity="center"
+        android:text="EMERGENCY CONTACT\nNUMBERS"
+        android:textColor="#D32F2F"
+        android:textSize="28sp"
+        android:textStyle="bold"  <!-- Center text within TextView -->
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:layout_marginTop="24dp"
+    android:paddingBottom="16dp"/>
+
+
+
+    <!-- Main Linear Layout to contain all emergency contacts -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/textView3"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
+
+        <!-- Emergency Contact Item Layout for Coast Guard -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginBottom="12dp"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/coas"
+                android:layout_gravity="center_vertical"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Coast Guard (for coastal emergencies)"
+                android:textColor="#333333"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:paddingStart="8dp"/>
+
+            <ImageView
+                android:id="@+id/phone_id_coa"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/tel"
+                android:layout_gravity="center_vertical"/>
+        </LinearLayout>
+
+        <!-- Bangladesh Red Crescent Society Contact -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginBottom="12dp"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/red"
+                android:layout_gravity="center_vertical"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Bangladesh Red Crescent Society"
+                android:textColor="#333333"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:paddingStart="8dp"/>
+
+            <ImageView
+                android:id="@+id/phone_id_red"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/tel"
+                android:layout_gravity="center_vertical"/>
+        </LinearLayout>
+
+        <!-- National Emergency Service -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginBottom="12dp"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/nes"
+                android:layout_gravity="center_vertical"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="National Emergency Service"
+                android:textColor="#333333"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:paddingStart="8dp"/>
+
+            <ImageView
+                android:id="@+id/phone_id_pol"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/tel"
+                android:layout_gravity="center_vertical"/>
+        </LinearLayout>
+
+        <!-- Ambulance Service -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginBottom="12dp"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/amb"
+                android:layout_gravity="center_vertical"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Ambulance Service"
+                android:textColor="#333333"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:paddingStart="8dp"/>
+
+            <ImageView
+                android:id="@+id/phone_id_amb"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/tel"
+                android:layout_gravity="center_vertical"/>
+        </LinearLayout>
+
+        <!-- Child Helpline -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginBottom="12dp"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/chld"
+                android:layout_gravity="center_vertical"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Child Helpline"
+                android:textColor="#333333"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:paddingStart="8dp"/>
+
+            <ImageView
+                android:id="@+id/phone_id_chld"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/tel"
+                android:layout_gravity="center_vertical"/>
+        </LinearLayout>
+
+        <!-- Rapid Action Battalion (RAB) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginBottom="12dp"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/rab"
+                android:layout_gravity="center_vertical"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Rapid Action Battalion (RAB)"
+                android:textColor="#333333"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:paddingStart="8dp"/>
+
+            <ImageView
+                android:id="@+id/phone_id_rab"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/tel"
+                android:layout_gravity="center_vertical"/>
+        </LinearLayout>
+
+        <!-- Flood Forecasting and Warning Center -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginBottom="12dp"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/fld"
+                android:layout_gravity="center_vertical"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Flood Forecasting and Warning Center"
+                android:textColor="#333333"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:paddingStart="8dp"/>
+
+            <ImageView
+                android:id="@+id/phone_id_flod"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/tel"
+                android:layout_gravity="center_vertical"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginBottom="12dp"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/fire"
+                android:layout_gravity="center_vertical"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Fire Service and Civil Defense"
+                android:textColor="#333333"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:paddingStart="8dp"/>
+
+            <ImageView
+                android:id="@+id/phone_id_fire"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/tel"
+                android:layout_gravity="center_vertical"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginBottom="12dp"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/head"
+                android:layout_gravity="center_vertical"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Bangladesh Police Headquarters"
+                android:textColor="#333333"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:paddingStart="8dp"/>
+
+            <ImageView
+                android:id="@+id/phone_id_polHe"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/tel"
+                android:layout_gravity="center_vertical"/>
+        </LinearLayout>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
