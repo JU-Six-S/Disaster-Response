@@ -17,6 +17,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.jusixs.ndrs.R;
 import com.jusixs.ndrs.model.NewsItem;
+import com.jusixs.ndrs.view.NewsListActivity;
 import com.jusixs.ndrs.viewmodel.NewsViewModel;
 
 /**
@@ -31,7 +32,8 @@ public class MainActivity extends AppCompatActivity {
     private Button uploadImageButton;
     private Button postNewsButton;
     private Button postRedAlertButton;
-    private Uri imageUri; // URI to hold the selected image
+    private Uri imageUri;
+    private  Button viewNewsListButton;// URI to hold the selected image
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         uploadImageButton = findViewById(R.id.uploadImageButton);
         postNewsButton = findViewById(R.id.postNewsButton);
         postRedAlertButton = findViewById(R.id.postRedAlertButton);
-
+        viewNewsListButton = findViewById(R.id.viewNewsListButton);
         // Observe status messages
         newsViewModel.getStatusMessage().observe(this, new Observer<String>() {
             @Override
@@ -104,5 +106,12 @@ public class MainActivity extends AppCompatActivity {
             intent.setType("image/*");
             imagePickerLauncher.launch(intent);
         });
+
+
+        viewNewsListButton.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, NewsListActivity.class);
+            startActivity(intent);
+        });
+
     }
 }
