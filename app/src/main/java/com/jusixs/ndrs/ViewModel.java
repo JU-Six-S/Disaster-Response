@@ -39,12 +39,9 @@ public class ViewModel {
      * @param phoneNumber The phone number to dial when the ImageView is clicked.
      */
     public void setPhoneClickListener(ImageView imageView, String phoneNumber) {
-        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + phoneNumber));
-                context.startActivity(intent);
-            }
+        imageView.setOnClickListener(view -> {
+            Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + phoneNumber));
+            context.startActivity(intent);
         });
     }
 
@@ -52,28 +49,29 @@ public class ViewModel {
      * Initializes click listeners for various emergency contact ImageViews,
      * associating each with the respective phone numbers from the Model.
      *
-     * @param image_phone_coa   ImageView for the Coast Guard contact.
-     * @param image_phone_red   ImageView for the Red Crescent contact.
-     * @param image_phone_pol   ImageView for the National Emergency contact.
-     * @param image_phone_amb   ImageView for the Ambulance contact.
-     * @param image_phone_child ImageView for the Child Helpline contact.
-     * @param image_phone_rab   ImageView for the RAB contact.
-     * @param image_phone_flod  ImageView for the Flood Forecasting contact.
-     * @param image_phone_fire  ImageView for the Fire service contact.
-     * @param image_phone_polHe ImageView for the Police Headquarters contact.
+     * @param imagePhoneCoastGuard   ImageView for the Coast Guard contact.
+     * @param imagePhoneRedCrescent  ImageView for the Red Crescent contact.
+     * @param imagePhonePolice       ImageView for the National Emergency contact.
+     * @param imagePhoneAmbulance    ImageView for the Ambulance contact.
+     * @param imagePhoneChildHelpline ImageView for the Child Helpline contact.
+     * @param imagePhoneRAB          ImageView for the RAB contact.
+     * @param imagePhoneFlood        ImageView for the Flood Forecasting contact.
+     * @param imagePhoneFire         ImageView for the Fire service contact.
+     * @param imagePhonePoliceHQ     ImageView for the Police Headquarters contact.
      */
-    public void initializePhoneClickListeners(ImageView image_phone_coa, ImageView image_phone_red, ImageView image_phone_pol,
-                                              ImageView image_phone_amb, ImageView image_phone_child, ImageView image_phone_rab,
-                                              ImageView image_phone_flod, ImageView image_phone_fire,
-                                              ImageView image_phone_polHe) {
-        setPhoneClickListener(image_phone_coa, model.getCoastGuardNumber());
-        setPhoneClickListener(image_phone_red, model.getRedCrescentNumber());
-        setPhoneClickListener(image_phone_pol, model.getNationalEmergencyNumber());
-        setPhoneClickListener(image_phone_amb, model.getAmbulanceNumber());
-        setPhoneClickListener(image_phone_child, model.getChildHelplineNumber());
-        setPhoneClickListener(image_phone_rab, model.getRabNumber());
-        setPhoneClickListener(image_phone_flod, model.getFloodForecastingNumber());
-        setPhoneClickListener(image_phone_fire, model.getFireNumber());
-        setPhoneClickListener(image_phone_polHe, model.getPoliceHeadNumber());
+    public void initializePhoneClickListeners(ImageView imagePhoneCoastGuard, ImageView imagePhoneRedCrescent,
+                                              ImageView imagePhonePolice, ImageView imagePhoneAmbulance,
+                                              ImageView imagePhoneChildHelpline, ImageView imagePhoneRAB,
+                                              ImageView imagePhoneFlood, ImageView imagePhoneFire,
+                                              ImageView imagePhonePoliceHQ) {
+        setPhoneClickListener(imagePhoneCoastGuard, model.getCoastGuardNumber());
+        setPhoneClickListener(imagePhoneRedCrescent, model.getRedCrescentNumber());
+        setPhoneClickListener(imagePhonePolice, model.getNationalEmergencyNumber());
+        setPhoneClickListener(imagePhoneAmbulance, model.getAmbulanceNumber());
+        setPhoneClickListener(imagePhoneChildHelpline, model.getChildHelplineNumber());
+        setPhoneClickListener(imagePhoneRAB, model.getRabNumber());
+        setPhoneClickListener(imagePhoneFlood, model.getFloodForecastingNumber());
+        setPhoneClickListener(imagePhoneFire, model.getFireNumber());
+        setPhoneClickListener(imagePhonePoliceHQ, model.getPoliceHeadNumber());
     }
 }

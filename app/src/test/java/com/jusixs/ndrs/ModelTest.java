@@ -1,13 +1,23 @@
 package com.jusixs.ndrs;
 
 import static org.junit.Assert.assertEquals;
-
 import org.junit.Before;
 import org.junit.Test;
 
 public class ModelTest {
 
     private Model model;
+
+    // Constants for expected values
+    private static final String COAST_GUARD_NUMBER = "108";
+    private static final String RED_CRESCENT_NUMBER = "+88-02-9330188";
+    private static final String NATIONAL_EMERGENCY_NUMBER = "999";
+    private static final String AMBULANCE_NUMBER = "199";
+    private static final String CHILD_HELPLINE_NUMBER = "1098";
+    private static final String RAB_NUMBER = "101";
+    private static final String FLOOD_FORECASTING_NUMBER = "+88-02-8141188";
+    private static final String FIRE_NUMBER = "199";
+    private static final String POLICE_HEADQUARTERS_NUMBER = "+88-02-55100000";
 
     @Before
     public void setUp() {
@@ -16,36 +26,46 @@ public class ModelTest {
 
     @Test
     public void testGetCoastGuardNumber() {
-        String expected = "108";
-        String actual = model.getCoastGuardNumber();
-        assertEquals("Coast Guard number should be '108'", expected, actual);
+        assertEquals("Coast Guard number should be '108'", COAST_GUARD_NUMBER, model.getCoastGuardNumber());
     }
 
     @Test
     public void testGetRedCrescentNumber() {
-        String expected = "+88-02-9330188";
-        String actual = model.getRedCrescentNumber();
-        assertEquals("Red Crescent number should be '+88-02-9330188'", expected, actual);
+        assertEquals("Red Crescent number should be '+88-02-9330188'", RED_CRESCENT_NUMBER, model.getRedCrescentNumber());
     }
 
     @Test
     public void testGetNationalEmergencyNumber() {
-        String expected = "999";
-        String actual = model.getNationalEmergencyNumber();
-        assertEquals("National Emergency number should be '999'", expected, actual);
+        assertEquals("National Emergency number should be '999'", NATIONAL_EMERGENCY_NUMBER, model.getNationalEmergencyNumber());
     }
 
     @Test
     public void testGetAmbulanceNumber() {
-        String expected = "199";
-        String actual = model.getAmbulanceNumber();
-        assertEquals("Ambulance number should be '199'", expected, actual);
+        assertEquals("Ambulance number should be '199'", AMBULANCE_NUMBER, model.getAmbulanceNumber());
     }
 
     @Test
     public void testGetChildHelplineNumber() {
-        String expected = "1098";
-        String actual = model.getChildHelplineNumber();
-        assertEquals("Child Helpline number should be '1098'", expected, actual);
+        assertEquals("Child Helpline number should be '1098'", CHILD_HELPLINE_NUMBER, model.getChildHelplineNumber());
+    }
+
+    @Test
+    public void testGetRabNumber() {
+        assertEquals("RAB number should be '101'", RAB_NUMBER, model.getRabNumber());
+    }
+
+    @Test
+    public void testGetFloodForecastingNumber() {
+        assertEquals("Flood Forecasting number should be '+88-02-8141188'", FLOOD_FORECASTING_NUMBER, model.getFloodForecastingNumber());
+    }
+
+    @Test
+    public void testGetFireNumber() {
+        assertEquals("Fire number should be '199'", FIRE_NUMBER, model.getFireNumber());
+    }
+
+    @Test
+    public void testGetPoliceHeadNumber() {
+        assertEquals("Police Headquarters number should be '+88-02-55100000'", POLICE_HEADQUARTERS_NUMBER, model.getPoliceHeadNumber());
     }
 }

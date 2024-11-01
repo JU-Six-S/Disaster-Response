@@ -36,34 +36,42 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Enables edge-to-edge display for the activity
+        // Enable edge-to-edge display for the activity
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-        // Sets padding to the main view to accommodate system UI insets
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+        // Set padding to the main view to accommodate system UI insets
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (view, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            view.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
-        // Initialize ViewModel with context to handle interactions
+        // Initialize ViewModel for handling interactions
         viewModel = new com.jusixs.ndrs.ViewModel(this);
 
-        // Retrieve ImageView elements for different emergency contacts
-        ImageView image_phone_coa = findViewById(R.id.phone_id_coa);
-        ImageView image_phone_red = findViewById(R.id.phone_id_red);
-        ImageView image_phone_pol = findViewById(R.id.phone_id_pol);
-        ImageView image_phone_amb = findViewById(R.id.phone_id_amb);
-        ImageView image_phone_child = findViewById(R.id.phone_id_chld);
-        ImageView image_phone_rab = findViewById(R.id.phone_id_rab);
-        ImageView image_phone_flod = findViewById(R.id.phone_id_flod);
-        ImageView image_phone_fire = findViewById(R.id.phone_id_fire);
-        ImageView image_phone_polHe = findViewById(R.id.phone_id_polHe);
+        // Retrieve ImageView elements for emergency contacts
+        ImageView imagePhoneCoastGuard = findViewById(R.id.phone_id_coa);
+        ImageView imagePhoneRedCrescent = findViewById(R.id.phone_id_red);
+        ImageView imagePhonePolice = findViewById(R.id.phone_id_pol);
+        ImageView imagePhoneAmbulance = findViewById(R.id.phone_id_amb);
+        ImageView imagePhoneChildHelpline = findViewById(R.id.phone_id_chld);
+        ImageView imagePhoneRAB = findViewById(R.id.phone_id_rab);
+        ImageView imagePhoneFloodForecasting = findViewById(R.id.phone_id_flod);
+        ImageView imagePhoneFire = findViewById(R.id.phone_id_fire);
+        ImageView imagePhonePoliceHeadquarters = findViewById(R.id.phone_id_polHe);
 
         // Configure click listeners for each ImageView using ViewModel
-        viewModel.initializePhoneClickListeners(image_phone_coa, image_phone_red, image_phone_pol,
-                image_phone_amb, image_phone_child, image_phone_rab, image_phone_flod, image_phone_fire,
-                image_phone_polHe);
+        viewModel.initializePhoneClickListeners(
+                imagePhoneCoastGuard,
+                imagePhoneRedCrescent,
+                imagePhonePolice,
+                imagePhoneAmbulance,
+                imagePhoneChildHelpline,
+                imagePhoneRAB,
+                imagePhoneFloodForecasting,
+                imagePhoneFire,
+                imagePhonePoliceHeadquarters
+        );
     }
 }

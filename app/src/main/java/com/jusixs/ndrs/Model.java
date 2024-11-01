@@ -14,15 +14,15 @@ package com.jusixs.ndrs;
 
 public class Model {
 
-    private String coastGuardNumber = "108";
-    private String redCrescentNumber = "+88-02-9330188";
-    private String nationalEmergencyNumber = "999";
-    private String ambulanceNumber = "199";
-    private String childHelplineNumber = "1098";
-    private String rabNumber = "101";
-    private String floodForecastingNumber = "+88-02-8141188";
-    private String fireNumber = "199";
-    private String polHeadNumber = "+88-02-55100000";
+    private static final String COAST_GUARD_NUMBER = "108";
+    private static final String RED_CRESCENT_NUMBER = "+88-02-9330188";
+    private static final String NATIONAL_EMERGENCY_NUMBER = "999";
+    private static final String AMBULANCE_NUMBER = "199";
+    private static final String CHILD_HELPLINE_NUMBER = "1098";
+    private static final String RAB_NUMBER = "101";
+    private static final String FLOOD_FORECASTING_NUMBER = "+88-02-8141188";
+    private static final String FIRE_NUMBER = "199";
+    private static final String POLICE_HEAD_NUMBER = "+88-02-55100000";
 
     /**
      * Gets the Coast Guard emergency contact number.
@@ -30,7 +30,7 @@ public class Model {
      * @return the Coast Guard contact number.
      */
     public String getCoastGuardNumber() {
-        return coastGuardNumber;
+        return COAST_GUARD_NUMBER;
     }
 
     /**
@@ -39,7 +39,7 @@ public class Model {
      * @return the Red Crescent contact number.
      */
     public String getRedCrescentNumber() {
-        return redCrescentNumber;
+        return RED_CRESCENT_NUMBER;
     }
 
     /**
@@ -48,7 +48,7 @@ public class Model {
      * @return the National Emergency contact number.
      */
     public String getNationalEmergencyNumber() {
-        return nationalEmergencyNumber;
+        return NATIONAL_EMERGENCY_NUMBER;
     }
 
     /**
@@ -57,7 +57,7 @@ public class Model {
      * @return the Ambulance contact number.
      */
     public String getAmbulanceNumber() {
-        return ambulanceNumber;
+        return AMBULANCE_NUMBER;
     }
 
     /**
@@ -66,7 +66,7 @@ public class Model {
      * @return the Child Helpline contact number.
      */
     public String getChildHelplineNumber() {
-        return childHelplineNumber;
+        return CHILD_HELPLINE_NUMBER;
     }
 
     /**
@@ -75,7 +75,7 @@ public class Model {
      * @return the RAB contact number.
      */
     public String getRabNumber() {
-        return rabNumber;
+        return RAB_NUMBER;
     }
 
     /**
@@ -84,7 +84,7 @@ public class Model {
      * @return the Flood Forecasting contact number.
      */
     public String getFloodForecastingNumber() {
-        return floodForecastingNumber;
+        return FLOOD_FORECASTING_NUMBER;
     }
 
     /**
@@ -93,7 +93,7 @@ public class Model {
      * @return the Fire service contact number.
      */
     public String getFireNumber() {
-        return fireNumber;
+        return FIRE_NUMBER;
     }
 
     /**
@@ -102,6 +102,6 @@ public class Model {
      * @return the Police Headquarters contact number.
      */
     public String getPoliceHeadNumber() {
-        return polHeadNumber;
+        return POLICE_HEAD_NUMBER;
     }
 }
