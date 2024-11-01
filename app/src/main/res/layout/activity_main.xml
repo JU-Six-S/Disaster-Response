@@ -16,13 +16,13 @@
         android:gravity="center"
         android:text="EMERGENCY CONTACT\nNUMBERS"
         android:textColor="#D32F2F"
-        android:textSize="28sp"
-        android:textStyle="bold"  <!-- Center text within TextView -->
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    android:layout_marginTop="24dp"
-    android:paddingBottom="16dp"/>
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp"
+        android:paddingBottom="16dp"/>
 
 
 
@@ -145,7 +145,7 @@
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:src="@drawable/amb"
+                android:src="@drawable/chld"
                 android:layout_gravity="center_vertical"/>
 
             <TextView
