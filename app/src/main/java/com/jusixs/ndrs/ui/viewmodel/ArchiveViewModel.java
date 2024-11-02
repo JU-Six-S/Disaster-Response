@@ -30,11 +30,12 @@ public class ArchiveViewModel extends ViewModel {
     /**
      * Initializes the ViewModel by setting up the repository and loading initial data.
      */
-    public ArchiveViewModel() {
+    public ArchiveViewModel(ArchiveRepository mockRepository) {
         repository = new ArchiveRepository();
         archiveData = new MutableLiveData<>();
         loadArchivedData();
     }
+
 
     /**
      * Loads archived disaster data from the repository and updates the LiveData.

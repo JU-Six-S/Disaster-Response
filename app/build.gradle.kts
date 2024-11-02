@@ -38,7 +38,22 @@ dependencies {
     implementation(libs.activity)
     implementation(libs.constraintlayout)
     implementation(libs.recyclerview)
+    implementation(fileTree(mapOf(
+        "dir" to "/Users/user/Library/Android/sdk/platforms/android-34",
+        "include" to listOf("*.aar", "*.jar"),
+//        "exclude" to listOf()
+    )))
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+
+
+    testImplementation("junit:junit:4.13.2")
+    testImplementation("org.mockito:mockito-core:3.11.2")
+    // For ViewModel and LiveData testing, you can use this
+    testImplementation("androidx.arch.core:core-testing:2.1.0")
+
+
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.1")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1")
 }
