@@ -1,17 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Primary brand colors -->
-    <color name="primaryColor">#1976D2</color> <!-- A shade of blue -->
+
     <color name="primaryDarkColor">#004BA0</color> <!-- Darker shade of blue for the status bar -->
 
-    <!-- Secondary color for accent elements -->
-    <color name="secondaryColor">#FF5722</color> <!-- A shade of orange -->
+
 
     <!-- Text colors -->
-    <color name="black">#000000</color>
+
     <color name="white">#FFFFFF</color>
-    <color name="gray">#757575</color> <!-- Gray for subtitles and secondary text -->
+
 
     <!-- Background color -->
     <color name="backgroundColor">#FAFAFA</color> <!-- Light gray background for pages -->
+
+
+    <color name="accentColor">#03DAC5</color>
+    <color name="textColorPrimary">#000000</color>
+    <color name="textColorSecondary">#757575</color>
+
+
+    <color name="primaryColor">#3F51B5</color>
+    <color name="secondaryColor">#FF9800</color>
+    <color name="primaryColorDark">#303F9F</color>
+    <color name="gray">#757575</color>
+    <color name="black">#000000</color>
+
 </resources>

@@ -1,39 +1,37 @@
 package com.jusixs.ndrs.ui.viewmodel;
 
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 import com.jusixs.ndrs.data.model.TrainingSession;
-import com.jusixs.ndrs.data.repository.TrainingRepository;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
- * ViewModel for managing the training sessions.
+ * ViewModel that manages and provides data related to training sessions.
+ * Adheres to MVVM architecture by holding and managing UI-related data for TrainingListFragment.
  */
 public class TrainingViewModel extends ViewModel {
-    private final TrainingRepository repository;
-    private final MutableLiveData<List<TrainingSession>> sessions;
 
+    private final List<TrainingSession> trainingSessions;
+
+    /**
+     * Constructs a TrainingViewModel and initializes the training session list with sample data.
+     */
     public TrainingViewModel() {
-        repository = new TrainingRepository();
-        sessions = new MutableLiveData<>();
-        loadTrainingSessions(); // Load sessions on initialization
+        trainingSessions = new ArrayList<>();
+        trainingSessions.add(new TrainingSession("1", "Disaster Preparedness", "Theoretical",
+                "10:00 AM - 12:00 PM", "John Doe",
+                "Region 1", "Responder", false));
+        trainingSessions.add(new TrainingSession("2", "Search and Rescue", "Practical",
+                "2:00 PM - 4:00 PM", "Jane Smith",
+                "Region 2", "Authority", false));
     }
 
     /**
-     * Fetches available training sessions and updates the LiveData.
-     */
-    private void loadTrainingSessions() {
-        List<TrainingSession> trainingSessions = repository.getTrainingSessions();
-        sessions.setValue(trainingSessions);
-    }
-
-    /**
-     * Gets LiveData of the training sessions.
+     * Retrieves the list of training sessions.
      *
-     * @return LiveData object containing the list of training sessions.
+     * @return List of TrainingSession objects.
      */
-    public LiveData<List<TrainingSession>> getTrainingSessions() {
-        return sessions;
+    public List<TrainingSession> getTrainingSessions() {
+        return trainingSessions;
     }
 }

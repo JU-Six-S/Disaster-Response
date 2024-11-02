@@ -19,4 +19,8 @@
             </intent-filter>
         </activity>
     </application>
+
+    <!-- Permissions, if required -->
+    <!-- Example: <uses-permission android:name="android.permission.INTERNET" /> -->
+
 </manifest>
