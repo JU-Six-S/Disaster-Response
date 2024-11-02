@@ -146,4 +146,8 @@ public class Guideline {
                 ", lastUpdated='" + lastUpdated + '\'' +
                 '}';
     }
+
+    public String getType() {
+        return "";
+    }
 }

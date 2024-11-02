@@ -68,6 +68,21 @@ public class GetGuidelines extends AppCompatActivity {
         mockGuidelines.add(new Guideline("3", "Flood", "Sylhet", "High", "Set up temporary shelters in safe zones and assist in relocating vulnerable populations.", "2024-01-03"));
         mockGuidelines.add(new Guideline("4", "Flood", "Rangpur", "Severe", "Coordinate with local health services for emergency response and deploy rescue teams to affected zones.", "2024-01-04"));
         mockGuidelines.add(new Guideline("5", "Flood", "Barishal", "Moderate", "Distribute relief materials such as food, water, and medical supplies in anticipation of river overflow.", "2024-01-05"));
+        mockGuidelines.add(new Guideline("6", "Cyclone", "Cox's Bazar", "Severe", "Evacuate coastal areas, reinforce shelters, and ensure emergency communication channels are operational.", "2024-02-10"));
+        mockGuidelines.add(new Guideline("7", "Cyclone", "Khulna", "High", "Deploy early-warning systems, and provide guidance on securing homes and protecting livestock.", "2024-02-11"));
+        mockGuidelines.add(new Guideline("8", "Cyclone", "Patuakhali", "Moderate", "Encourage residents to stock up on food, water, and medicine; keep updated with cyclone advisories.", "2024-02-12"));
+        mockGuidelines.add(new Guideline("9", "Cyclone", "Barguna", "Severe", "Mobilize medical teams, reinforce evacuation protocols, and prepare for storm surge impact on vulnerable zones.", "2024-02-13"));
+
+        // Earthquake guidelines
+        mockGuidelines.add(new Guideline("10", "Earthquake", "Dhaka", "Severe", "Identify structurally unsafe buildings, conduct evacuation drills, and equip shelters with basic supplies.", "2024-03-01"));
+        mockGuidelines.add(new Guideline("11", "Earthquake", "Sylhet", "High", "Prepare emergency response teams for immediate deployment and conduct public awareness campaigns.", "2024-03-02"));
+        mockGuidelines.add(new Guideline("12", "Earthquake", "Chattogram", "Moderate", "Strengthen communication with local authorities to provide swift guidance on safe evacuation.", "2024-03-03"));
+
+        // Landslide guidelines
+        mockGuidelines.add(new Guideline("13", "Landslide", "Bandarban", "High", "Clear evacuation routes, set up temporary shelters, and monitor rainfall in vulnerable areas.", "2024-04-15"));
+        mockGuidelines.add(new Guideline("14", "Landslide", "Chattogram Hill Tracts", "Moderate", "Advise residents in high-risk zones to relocate temporarily and avoid travel on steep paths.", "2024-04-16"));
+        mockGuidelines.add(new Guideline("15", "Landslide", "Rangamati", "Severe", "Deploy teams for debris clearance and assess the structural safety of homes and roads.", "2024-04-17"));
+
 
         guidelineAdapter.setGuidelines(mockGuidelines);
     }
