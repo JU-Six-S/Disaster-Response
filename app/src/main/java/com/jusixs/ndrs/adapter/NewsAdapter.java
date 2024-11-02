@@ -1,6 +1,5 @@
 package com.jusixs.ndrs.adapter;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,11 +19,9 @@ import java.util.List;
 /**
  * Adapter for displaying a list of news items in a RecyclerView.
  */
-public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder>
-{
+public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder> {
     private final List<NewsItem> newsList;
     private final NewsItemListener listener;
-    private List<NewsItem> newsItems;
 
     /**
      * Constructs a NewsAdapter with the specified news items and listener.
@@ -32,36 +29,22 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
      * @param newsList the list of news items to display
      * @param listener the listener for handling item click events
      */
-    public NewsAdapter(List<NewsItem> newsList, NewsItemListener listener)
-    {
+    public NewsAdapter(List<NewsItem> newsList, NewsItemListener listener) {
         this.newsList = newsList;
         this.listener = listener;
     }
 
-    /**
-     * Inflates the item view for the RecyclerView.
-     *
-     * @param parent the parent ViewGroup
-     * @param viewType the view type of the new View
-     * @return a new instance of NewsViewHolder
-     */
+    /** @noinspection ClassEscapesDefinedScope*/
     @NonNull
     @Override
-    public NewsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
-    {
+    public NewsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_news, parent, false);
         return new NewsViewHolder(view);
     }
 
-    /**
-     * Binds the data to the item view at the specified position.
-     *
-     * @param holder the NewsViewHolder to bind data to
-     * @param position the position of the item in the list
-     */
+    /** @noinspection ClassEscapesDefinedScope*/
     @Override
-    public void onBindViewHolder(@NonNull NewsViewHolder holder, int position)
-    {
+    public void onBindViewHolder(@NonNull NewsViewHolder holder, int position) {
         NewsItem newsItem = newsList.get(position);
         holder.titleTextView.setText(newsItem.getTitle());
         holder.descriptionTextView.setText(newsItem.getDescription());
@@ -69,24 +52,16 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
         // Load image using Glide
         Glide.with(holder.itemView.getContext()).load(newsItem.getImageUrl()).into(holder.newsImageView);
 
-        // Set click listener for edit
+        // Set click listeners
         holder.itemView.setOnClickListener(v -> listener.onEditNews(newsItem));
-
-        // Set click listener for delete (long press)
         holder.itemView.setOnLongClickListener(v -> {
             listener.onDeleteNews(newsItem);
             return true;
         });
     }
 
-    /**
-     * Returns the total number of items in the news list.
-     *
-     * @return the size of the news list
-     */
     @Override
-    public int getItemCount()
-    {
+    public int getItemCount() {
         return newsList.size();
     }
 
@@ -95,34 +70,21 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
      *
      * @param newsItems the updated list of news items
      */
-    public void updateNewsList(List<NewsItem> newsItems)
-    {
-        newsList.clear();
-        newsList.addAll(newsItems);
-        notifyDataSetChanged();
-    }
-
-    public void setNewsItems(List<NewsItem> newsItems) {
-        this.newsItems = newsItems;
-        notifyDataSetChanged(); // Notify the adapter of data changes
+    public void updateNewsList(List<NewsItem> newsItems) {
+       this.newsList.clear();
+        this.newsList.addAll(newsItems);
+        notifyDataSetChanged(); // Refresh RecyclerView
     }
 
     /**
      * ViewHolder class for holding item views in the RecyclerView.
      */
-    static class NewsViewHolder extends RecyclerView.ViewHolder
-    {
+    static class NewsViewHolder extends RecyclerView.ViewHolder {
         TextView titleTextView;
         TextView descriptionTextView;
         ImageView newsImageView;
 
-        /**
-         * Constructs a NewsViewHolder and initializes its views.
-         *
-         * @param itemView the item view of the RecyclerView
-         */
-        public NewsViewHolder(@NonNull View itemView)
-        {
+        public NewsViewHolder(@NonNull View itemView) {
             super(itemView);
             titleTextView = itemView.findViewById(R.id.titleTextView);
             descriptionTextView = itemView.findViewById(R.id.descriptionTextView);

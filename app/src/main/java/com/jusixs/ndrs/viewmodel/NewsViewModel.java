@@ -18,16 +18,21 @@ public class NewsViewModel extends ViewModel {
     private final MutableLiveData<NewsItem> selectedNews;
     private final LiveData<String> statusMessage;
     private final LiveData<List<NewsItem>> allNews;
+    private final FirebaseFirestore mockFirestore = null;
 
     /**
      * Constructor for NewsViewModel. Initializes the repository and LiveData objects.
      */
-    public NewsViewModel() {
-        repository = new NewsRepository();
+    public NewsViewModel( NewsRepository repository) {
+        this.repository = repository;
+        //repository = new NewsRepository(mockFirestore);
         selectedNews = new MutableLiveData<>();
         statusMessage = repository.getStatusMessage();
         allNews = repository.getAllNews();
     }
+
+//    public NewsViewModel(NewsRepository mockRepository) {
+//    }
 
     /**
      * Returns the LiveData object containing the status message.

@@ -1,5 +1,6 @@
 [versions]
 agp = "8.5.0"
+coreTesting = "2.1.0"
 firebaseAnalyticsKtx = "22.1.2"
 firebaseFirestoreKtx = "25.1.1"
 junit = "4.13.2"
@@ -11,8 +12,10 @@ activity = "1.9.2"
 constraintlayout = "2.1.4"
 googleServices = "4.4.2"
 firebaseStorage = "21.0.1"
+mockitoCore = "4.2.0"
 
 [libraries]
+core-testing = { module = "androidx.arch.core:core-testing", version.ref = "coreTesting" }
 firebase-analytics-ktx = { module = "com.google.firebase:firebase-analytics-ktx", version.ref = "firebaseAnalyticsKtx" }
 firebase-firestore-ktx = { module = "com.google.firebase:firebase-firestore-ktx", version.ref = "firebaseFirestoreKtx" }
 google-firebase-analytics-ktx = { module = "com.google.firebase:firebase-analytics-ktx" }
@@ -24,6 +27,7 @@ material = { group = "com.google.android.material", name = "material", version.r
 activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 firebase-storage = { group = "com.google.firebase", name = "firebase-storage", version.ref = "firebaseStorage" }
+mockito-core = { module = "org.mockito:mockito-core", version.ref = "mockitoCore" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

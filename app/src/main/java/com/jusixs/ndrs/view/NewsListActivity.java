@@ -2,6 +2,7 @@ package com.jusixs.ndrs.view;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,7 +25,6 @@ import java.util.List;
  */
 public class NewsListActivity extends AppCompatActivity {
     private NewsViewModel newsViewModel;
-    private RecyclerView newsRecyclerView;
     private NewsAdapter newsAdapter;
 
     @Override
@@ -36,7 +36,7 @@ public class NewsListActivity extends AppCompatActivity {
         newsViewModel = new ViewModelProvider(this).get(NewsViewModel.class);
 
         // Set up RecyclerView
-        newsRecyclerView = findViewById(R.id.recyclerView);
+        RecyclerView newsRecyclerView = findViewById(R.id.recyclerView);
         newsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         // Initialize the adapter with a listener
@@ -55,11 +55,13 @@ public class NewsListActivity extends AppCompatActivity {
         newsRecyclerView.setAdapter(newsAdapter);
 
         // Observe the LiveData for all news items
-        newsViewModel.getAllNews().observe(this, new Observer<List<NewsItem>>() {
-            @Override
-            public void onChanged(List<NewsItem> newsItems) {
-                // Update the adapter when data changes
-                newsAdapter.setNewsItems(newsItems); // Ensure you have a method to set items
+        newsViewModel.getAllNews().observe(this, newsItems -> {
+            // Update the adapter when data changes
+            if (newsItems != null && !newsItems.isEmpty()) {
+                Log.d("NewsListActivity", "News items loaded: " + newsItems.size());
+                newsAdapter.updateNewsList(newsItems);
+            } else {
+                Log.d("NewsListActivity", "No news items found");
             }
         });
     }

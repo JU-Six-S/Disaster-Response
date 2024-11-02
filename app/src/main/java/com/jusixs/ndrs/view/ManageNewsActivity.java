@@ -51,8 +51,8 @@ public class ManageNewsActivity extends AppCompatActivity implements NewsItemLis
         descriptionEditText = findViewById(R.id.descriptionEditText);
         newsImageView = findViewById(R.id.newsImageView);
 
-        Button deleteNewsButton = findViewById(R.id.deleteNewsButton);
-        deleteNewsButton.setOnClickListener(this::confirmDeleteNews);
+//        Button deleteNewsButton = findViewById(R.id.deleteNewsButton);
+//        deleteNewsButton.setOnClickListener(this::confirmDeleteNews);
 
         Button uploadImageButton = findViewById(R.id.uploadImageButton);
         Button postNewsButton = findViewById(R.id.postNewsButton);

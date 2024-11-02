@@ -1,5 +1,7 @@
 package com.jusixs.ndrs.repository;
 
+import android.util.Log;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import com.google.firebase.firestore.CollectionReference;
@@ -17,15 +19,16 @@ public class NewsRepository
 {
     private final FirebaseFirestore db;
     private final MutableLiveData<String> statusMessage;
-    private final MutableLiveData<List<NewsItem>> allNews;
+    private final MutableLiveData<List<NewsItem>> allNews ;
 
     /**
      * Initializes the NewsRepository with Firestore instance
      * and LiveData objects to track news items and status messages.
      */
-    public NewsRepository()
+    public NewsRepository(FirebaseFirestore db)
     {
-        db = FirebaseFirestore.getInstance();
+        //db = FirebaseFirestore.getInstance();
+        this.db = db;
         statusMessage = new MutableLiveData<>();
         allNews = new MutableLiveData<>();
     }
@@ -56,10 +59,12 @@ public class NewsRepository
                         for (QueryDocumentSnapshot document : task.getResult()) {
                             NewsItem newsItem = document.toObject(NewsItem.class);
                             newsList.add(newsItem);
+                            Log.d("NewsRepository", "Fetched news item: " + newsItem.getTitle());
                         }
                         allNews.setValue(newsList);
                     } else {
                         statusMessage.setValue("Failed to fetch news items");
+                        Log.e("NewsRepository", "Error fetching news items", task.getException());
                     }
                 });
         return allNews;

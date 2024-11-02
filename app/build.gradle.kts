@@ -1,3 +1,5 @@
+
+
 plugins {
     alias(libs.plugins.android.application)
     id("com.google.gms.google-services") version "4.4.2" apply false
@@ -45,9 +47,19 @@ dependencies {
     implementation(libs.activity)
     implementation(libs.constraintlayout)
     implementation(libs.firebase.storage)
-    testImplementation(libs.junit)
+//    implementation(fileTree(mapOf(
+//        "dir" to "C:\\Users\\nasri\\AppData\\Local\\Android\\Sdk\\platforms\\android-34",
+//        "include" to listOf("*.aar", "*.jar"),
+//        //"exclude" to listOf()
+//    )))
+    //testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+
+    testImplementation("junit:junit:4.13.2")
+    testImplementation("org.mockito:mockito-core:4.2.0")
+    testImplementation("androidx.arch.core:core-testing:2.1.0")
+    testImplementation("org.mockito:mockito-inline:4.2.0") // For mocking final classes
 
     // firebase dependencies
     implementation(libs.firebase.analytics.ktx)
