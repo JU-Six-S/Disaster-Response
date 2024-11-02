@@ -5,7 +5,6 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 import com.jusixs.ndrs.data.model.Guideline;
 import com.jusixs.ndrs.data.repository.GuidelineRepository;
-
 import java.util.List;
 
 /**
@@ -17,9 +16,10 @@ public class GuidelineViewModel extends ViewModel {
     private final MutableLiveData<String> errorMessage = new MutableLiveData<>();
     private final LiveData<List<Guideline>> guidelines;
 
-    public GuidelineViewModel() {
-        repository = GuidelineRepository.getInstance();
-        guidelines = repository.getGuidelines();
+    // Constructor accepting a repository for testability
+    public GuidelineViewModel(GuidelineRepository repository) {
+        this.repository = repository != null ? repository : GuidelineRepository.getInstance();
+        this.guidelines = this.repository.getGuidelines();
     }
 
     /**
@@ -32,9 +32,8 @@ public class GuidelineViewModel extends ViewModel {
      */
     public LiveData<List<Guideline>> getGuidelines(String type, String location, String severity) {
         try {
-            // Filter guidelines based on search criteria (if the repository supports filtering).
-            // If not, add filtering here or in the repository.
-            return repository.getGuidelines(); // Modify this to filter by type, location, and severity if needed.
+            // In a real-world scenario, you'd filter the guidelines by criteria here.
+            return repository.getGuidelines();
         } catch (Exception e) {
             errorMessage.setValue("Failed to retrieve guidelines.");
             return new MutableLiveData<>(null);  // Return empty data if error occurs

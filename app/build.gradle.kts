@@ -37,21 +37,16 @@ tasks.withType<Javadoc> {
 }
 
 dependencies {
-
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
     implementation(libs.constraintlayout)
     implementation(libs.support.annotations)
-    //implementation(fileTree(mapOf(
-    //    "dir" to "C:\\Users\\Sithi\\AppData\\Local\\Android\\Sdk\\platforms\\android-34",
-    //    "include" to listOf("*.aar", "*.jar"),
-       // "exclude" to listOf()
-   // )))
+
     testImplementation ("org.junit.jupiter:junit-jupiter:5.7.1")
     testImplementation ("org.mockito:mockito-junit-jupiter:3.9.0")
     testImplementation ("org.mockito:mockito-core:4.0.0")
-
+    testImplementation ("androidx.arch.core:core-testing:2.1.0")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
