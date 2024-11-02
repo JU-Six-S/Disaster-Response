@@ -1,5 +1,47 @@
 <resources>
-    <string name="app_name">NDRS</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="app_name">Inform Media</string>
+    <string name="nature_of_disaster">Nature of Disaster</string>
+    <string name="affected_areas">Affected Areas</string>
+    <string name="affected_areas_hint">Enter affected areas</string>
+    <string name="current_status">Current Status</string>
+    <string name="timestamp">Timestamp</string>
+    <string name="hello_blank_fragment">Hello from the fragment</string>
+    <string name="upload_image">Upload Image</string>
+    <string name="select_image">Select Image</string>
+    <string name="urgent_message">Urgent Message/Instructions</string>
+    <string name="urgent_message_hint">Enter urgent message</string>
+    <string name="select_media_channels">Select Media Channels</string>
+    <string name="tv_channel">TV</string>
+    <string name="radio_channel">Radio</string>
+    <string name="online_news_channel">Online News</string>
+    <string name="social_media_channel">Social Media</string>
+    <string name="preview_notification">Preview Notification</string>
+    <string name="save_draft">Save Draft</string>
+    <string name="send_notification">Send Notification</string>
+
+    <string-array name="disaster_types">
+        <item>Earthquake</item>
+        <item>Flood</item>
+        <item>Fire</item>
+        <item>Hurricane</item>
+    </string-array>
+
+    <string-array name="status_options">
+        <item>Ongoing</item>
+        <item>Resolved</item>
+        <item>Under Control</item>
+    </string-array>
+
+    <string-array name="channel_options">
+        <item>BTV</item>
+        <item>Channel-i</item>
+        <item>Jamuna Television</item>
+        <item>Radio spicy 98.2</item>
+        <item>Radio 98.1</item>
+        <item>Prothom Alo online</item>
+        <item>Facebook page</item>
+        <item>Instagram</item>
+    </string-array>
 </resources>
+
+
