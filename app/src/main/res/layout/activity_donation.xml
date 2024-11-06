@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    tools:context=".ui.view.DonationActivity"
+    android:padding="16dp">
+
+<EditText
+    android:id="@+id/donor_name"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="Donor Name" />
+
+<EditText
+    android:id="@+id/amount"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="Amount" />
+
+<EditText
+    android:id="@+id/payment_method"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="Payment Method" />
+
+<EditText
+    android:id="@+id/country"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="Country" />
+
+<Button
+    android:id="@+id/donate_button"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Donate" />
+</LinearLayout>
