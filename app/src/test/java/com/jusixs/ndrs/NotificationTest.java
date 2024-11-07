@@ -6,14 +6,12 @@ import static org.junit.Assert.assertEquals;
 
 import com.jusixs.ndrs.data.model.Notification; // Importing the correct Notification class
 
-public class NotificationTest
-{
+public class NotificationTest {
     /**
      * Tests the creation of a Notification object.
      */
     @Test
-    public void testNotificationCreation()
-    {
+    public void testNotificationCreation() {
         // Given
         String disasterType = "Flood";
         String affectedAreas = "Area 51";
@@ -36,8 +34,7 @@ public class NotificationTest
      * Tests the setter methods of the Notification object.
      */
     @Test
-    public void testSetters()
-    {
+    public void testSetters() {
         // Given
         Notification notification = new Notification("Flood", "Area 51", "Severe", "2024-11-02T10:00:00Z", "Evacuate immediately.");
 

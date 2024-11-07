@@ -7,8 +7,7 @@ import androidx.lifecycle.ViewModel;
 import com.jusixs.ndrs.data.model.Notification;
 import com.jusixs.ndrs.data.repository.NotificationRepository;
 
-public class MainViewModel extends ViewModel
-{
+public class MainViewModel extends ViewModel {
     private final NotificationRepository repository;
     private final LiveData<Notification> notificationLiveData;
     private final MutableLiveData<String> toastMessage; // MutableLiveData for toast messages
@@ -18,8 +17,7 @@ public class MainViewModel extends ViewModel
      *
      * @param repository The NotificationRepository instance to handle notification data.
      */
-    public MainViewModel(NotificationRepository repository)
-    {
+    public MainViewModel(NotificationRepository repository) {
         this.repository = repository;
         notificationLiveData = repository.getNotification();
         toastMessage = new MutableLiveData<>();
@@ -30,8 +28,8 @@ public class MainViewModel extends ViewModel
      *
      * @return LiveData<Notification> The current notification data.
      */
-    public LiveData<Notification> getNotificationLiveData()
-    {
+    public LiveData<Notification> getNotificationLiveData() {
+
         return notificationLiveData;
     }
 
@@ -40,8 +38,7 @@ public class MainViewModel extends ViewModel
      *
      * @param notification The Notification object to save.
      */
-    public void saveNotification(Notification notification)
-    {
+    public void saveNotification(Notification notification) {
         repository.saveNotification(notification);
     }
 
@@ -50,8 +47,7 @@ public class MainViewModel extends ViewModel
      *
      * @param notification The Notification object to send.
      */
-    public void sendNotification(Notification notification)
-    {
+    public void sendNotification(Notification notification) {
         repository.sendNotification(notification);
         // Set the toast message after sending the notification
         toastMessage.setValue("Notification sent!");
@@ -62,8 +58,8 @@ public class MainViewModel extends ViewModel
      *
      * @return LiveData<String> The toast message to be displayed.
      */
-    public LiveData<String> getToastMessage()
-    {
+    public LiveData<String> getToastMessage() {
+
         return toastMessage;
     }
 }

@@ -12,8 +12,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-public class MainActivity extends AppCompatActivity
-{
+public class MainActivity extends AppCompatActivity {
     private static final int IMAGE_PICK_REQUEST = 1;
     private ImageView imagePreview;
     private EditText editTextAffectedAreas;
@@ -30,8 +29,7 @@ public class MainActivity extends AppCompatActivity
      *                           onSaveInstanceState(Bundle).
      */
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -99,8 +97,7 @@ public class MainActivity extends AppCompatActivity
     /**
      * Opens the gallery to select an image.
      */
-    private void selectImage()
-    {
+    private void selectImage() {
         Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         startActivityForResult(intent, IMAGE_PICK_REQUEST);
     }
@@ -113,8 +110,7 @@ public class MainActivity extends AppCompatActivity
      * @param data - Data returned from the gallery, containing the URI of the selected image.
      */
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data)
-    {
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == IMAGE_PICK_REQUEST && resultCode == RESULT_OK && data != null)
         {
@@ -127,8 +123,7 @@ public class MainActivity extends AppCompatActivity
      * Generates a preview text based on user inputs in the notification form and
      * displays it in a preview TextView.
      */
-    private void previewNotification()
-    {
+    private void previewNotification() {
         Spinner spinnerDisaster = findViewById(R.id.spinnerDisaster);
         Spinner spinnerCurrentStatus = findViewById(R.id.spinnerCurrentStatus);
 
@@ -147,8 +142,7 @@ public class MainActivity extends AppCompatActivity
     /**
      * Saves the current notification draft.
      */
-    private void saveDraft()
-    {
+    private void saveDraft() {
         // Logic to save draft (implement as needed)
         Toast.makeText(this, "Draft saved successfully!", Toast.LENGTH_SHORT).show();
     }
@@ -156,8 +150,7 @@ public class MainActivity extends AppCompatActivity
     /**
      * Sends the notification.
      */
-    private void sendNotification()
-    {
+    private void sendNotification() {
         // Logic to send notification (implement as needed)
         Toast.makeText(this, "Notification sent successfully!", Toast.LENGTH_SHORT).show();
     }

@@ -3,8 +3,7 @@ package com.jusixs.ndrs.data.repository;
 import androidx.lifecycle.MutableLiveData;
 import com.jusixs.ndrs.data.model.Notification;
 
-public class NotificationRepository
-{
+public class NotificationRepository {
     private final MutableLiveData<Notification> notificationLiveData = new MutableLiveData<>();
 
     /**
@@ -12,8 +11,8 @@ public class NotificationRepository
      *
      * @return MutableLiveData containing the current Notification.
      */
-    public MutableLiveData<Notification> getNotification()
-    {
+    public MutableLiveData<Notification> getNotification() {
+
         return notificationLiveData;
     }
 
@@ -22,8 +21,7 @@ public class NotificationRepository
      *
      * @param notification The Notification to save.
      */
-    public void saveNotification(Notification notification)
-    {
+    public void saveNotification(Notification notification) {
         // Save draft logic could go here.
         notificationLiveData.setValue(notification);
     }
@@ -33,8 +31,7 @@ public class NotificationRepository
      *
      * @param notification The Notification to send.
      */
-    public void sendNotification(Notification notification)
-    {
+    public void sendNotification(Notification notification) {
         // Logic for sending notification to a server or API.
         notificationLiveData.setValue(notification);
     }

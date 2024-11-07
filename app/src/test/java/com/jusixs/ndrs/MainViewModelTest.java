@@ -23,8 +23,7 @@ public class MainViewModelTest
     private NotificationRepository mockRepository;
 
     @Before
-    public void setUp()
-    {
+    public void setUp() {
         MockitoAnnotations.openMocks(this);
         viewModel = new MainViewModel(mockRepository);
     }
@@ -33,8 +32,7 @@ public class MainViewModelTest
      * Tests the retrieval of notification LiveData.
      */
     @Test
-    public void testGetNotificationLiveData()
-    {
+    public void testGetNotificationLiveData() {
         // Arrange
         Notification notification = new Notification("Test Disaster", "Test Area", "Test Status", System.currentTimeMillis());
         MutableLiveData<Notification> liveData = new MutableLiveData<>();
@@ -58,8 +56,7 @@ public class MainViewModelTest
      * Tests the save notification functionality.
      */
     @Test
-    public void testSaveNotification()
-    {
+    public void testSaveNotification() {
         // Arrange
         Notification notification = new Notification("Test Disaster", "Test Area", "Test Status", System.currentTimeMillis());
 

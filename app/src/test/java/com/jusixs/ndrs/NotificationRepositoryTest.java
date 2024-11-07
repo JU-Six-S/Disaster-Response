@@ -17,8 +17,8 @@ public class NotificationRepositoryTest
     private NotificationRepository notificationRepository;
 
     @Before
-    public void setUp()
-    {
+    public void setUp() {
+
         notificationRepository = new NotificationRepository();
     }
 
@@ -26,8 +26,7 @@ public class NotificationRepositoryTest
      * Tests that getNotification returns a MutableLiveData instance.
      */
     @Test
-    public void testGetNotificationReturnsLiveData()
-    {
+    public void testGetNotificationReturnsLiveData() {
         // Act
         MutableLiveData<Notification> result = notificationRepository.getNotification();
 
@@ -39,8 +38,7 @@ public class NotificationRepositoryTest
      * Tests that saving a notification updates the LiveData.
      */
     @Test
-    public void testSaveNotificationUpdatesLiveData()
-    {
+    public void testSaveNotificationUpdatesLiveData() {
         // Arrange
         Notification notification = new Notification("Flood", "Area 51", "Critical", "Current Timestamp", "Evacuate immediately.");
         Observer<Notification> observer = mock(Observer.class);
@@ -58,8 +56,7 @@ public class NotificationRepositoryTest
      * Tests that sending a notification updates the LiveData.
      */
     @Test
-    public void testSendNotificationUpdatesLiveData()
-    {
+    public void testSendNotificationUpdatesLiveData() {
         // Arrange
         Notification notification = new Notification("Earthquake", "California", "Severe", "Current Timestamp", "Seek shelter immediately.");
         Observer<Notification> observer = mock(Observer.class);

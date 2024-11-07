@@ -1,7 +1,6 @@
 package com.jusixs.ndrs.data.model;
 
-public class Notification
-{
+public class Notification {
     private final String disasterType;
     private final String affectedAreas;
     private final String currentStatus;
@@ -17,8 +16,7 @@ public class Notification
      * @param timestamp      Timestamp of the notification.
      * @param urgentMessage  Urgent message associated with the notification.
      */
-    public Notification(String disasterType, String affectedAreas, String currentStatus, String timestamp, String urgentMessage)
-    {
+    public Notification(String disasterType, String affectedAreas, String currentStatus, String timestamp, String urgentMessage) {
         this.disasterType = disasterType;
         this.affectedAreas = affectedAreas;
         this.currentStatus = currentStatus;
@@ -34,8 +32,7 @@ public class Notification
      * @param testStatus     The test current status.
      * @param timestamp      The test timestamp.
      */
-    public Notification(String testDisaster, String testArea, String testStatus, long timestamp)
-    {
+    public Notification(String testDisaster, String testArea, String testStatus, long timestamp) {
         this.disasterType = testDisaster;
         this.affectedAreas = testArea;
         this.currentStatus = testStatus;
