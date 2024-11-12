@@ -40,4 +40,19 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+    // JUnit 5 for unit testing
+    testImplementation("org.junit.jupiter:junit-jupiter:5.7.1")
+
+    // Mockito for mocking
+    testImplementation("org.mockito:mockito-core:3.11.2")
+    testImplementation("org.mockito:mockito-junit-jupiter:3.11.2")
+
+    // Robolectric for Android environment in unit tests
+    testImplementation("org.robolectric:robolectric:4.7.3")
+    // LiveData testing (optional, useful for ViewModel testing)
+    testImplementation("androidx.arch.core:core-testing:2.1.0")
+}
+
+tasks.withType<Test> {
+    useJUnitPlatform()
 }
