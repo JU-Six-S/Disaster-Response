@@ -54,4 +54,7 @@ public class IncidentViewModel extends ViewModel {
     }
 
 
+    public boolean isIncidentReported(String name, String location, String time) {
+        return false;
+    }
 }

@@ -42,6 +42,8 @@ public class Incident {
         return affectedArea;
     }
 
+
+
     public String getAssistanceType(){
         return assistanceType;
     }
