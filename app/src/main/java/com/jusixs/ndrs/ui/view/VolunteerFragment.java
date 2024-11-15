@@ -7,34 +7,38 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.ViewFlipper;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import com.jusixs.ndrs.R;
-import com.jusixs.ndrs.ui.viewmodel.VolunteerViewModel;
+import com.jusixs.ndrs.ui.viewmodel.VolunteerTaskViewModel;
 
-class VolunteerFragment extends Fragment {
-    private VolunteerViewModel viewModel;
+public class VolunteerFragment extends Fragment {
+    private VolunteerTaskViewModel viewModel;
     private EditText etName, etContact, etExpertise, etAvailability, etTask, etFeedback;
     private Button btnRegister, btnAllocate, btnSendEmail, btnSendSms, btnSendNotification, btnSubmitFeedback;
     private ViewFlipper viewFlipper;
 
+    // Overriding onCreateView to inflate the fragment layout and initialize ViewModel
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_volunteer, container, false);
-        viewModel = new ViewModelProvider(this).get(VolunteerViewModel.class);
 
+        // Initializing the ViewModel
+        viewModel = new ViewModelProvider(this).get(VolunteerTaskViewModel.class);
+
+        // Initializing UI components
         initializeViews(view);
+        // Setting button listeners
         setButtonListeners();
 
         return view;
     }
 
+    // Method to initialize UI components
     private void initializeViews(View view) {
         etName = view.findViewById(R.id.et_name);
         etContact = view.findViewById(R.id.et_contact);
@@ -53,48 +57,92 @@ class VolunteerFragment extends Fragment {
         viewFlipper = view.findViewById(R.id.viewFlipper);
     }
 
+    // Setting up button click listeners
     private void setButtonListeners() {
-        btnRegister.setOnClickListener(v -> registerVolunteer());
-        btnAllocate.setOnClickListener(v -> allocateTask());
-        btnSendEmail.setOnClickListener(v -> sendCommunication("Email"));
-        btnSendSms.setOnClickListener(v -> sendCommunication("SMS"));
-        btnSendNotification.setOnClickListener(v -> sendCommunication("Notification"));
-        btnSubmitFeedback.setOnClickListener(v -> submitFeedback());
+        btnRegister.setOnClickListener(v -> handleRegisterVolunteer());
+        btnAllocate.setOnClickListener(v -> handleTaskAllocation());
+        btnSendEmail.setOnClickListener(v -> handleCommunication("Email"));
+        btnSendSms.setOnClickListener(v -> handleCommunication("SMS"));
+        btnSendNotification.setOnClickListener(v -> handleCommunication("Notification"));
+        btnSubmitFeedback.setOnClickListener(v -> handleFeedbackSubmission());
     }
 
-    private void registerVolunteer() {
-        String name = etName.getText().toString();
-        String contact = etContact.getText().toString();
-        String expertise = etExpertise.getText().toString();
-        String availability = etAvailability.getText().toString();
+    // Handles volunteer registration process
+    private void handleRegisterVolunteer() {
+        String name = etName.getText().toString().trim();
+        String contact = etContact.getText().toString().trim();
+        String expertise = etExpertise.getText().toString().trim();
+        String availability = etAvailability.getText().toString().trim();
 
-        if (!name.isEmpty() && !contact.isEmpty() && !expertise.isEmpty() && !availability.isEmpty()) {
-            viewModel.registerVolunteer(name, contact, expertise, availability);
-            Toast.makeText(getContext(), "Volunteer Registered Successfully", Toast.LENGTH_SHORT).show();
-        } else {
+        // Validation for empty fields
+        if (name.isEmpty() || contact.isEmpty() || expertise.isEmpty() || availability.isEmpty()) {
             Toast.makeText(getContext(), "Please fill all fields", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Calling ViewModel to register the volunteer
+        boolean isRegistered = viewModel.registerVolunteer(name, contact, expertise, availability);
+        if (isRegistered) {
+            Toast.makeText(getContext(), "Volunteer Registered Successfully", Toast.LENGTH_SHORT).show();
+            clearInputFields(); // Clear input fields after successful registration
+        } else {
+            Toast.makeText(getContext(), "Registration Failed", Toast.LENGTH_SHORT).show();
         }
     }
 
-    private void allocateTask() {
-        String taskDescription = etTask.getText().toString();
-        if (!taskDescription.isEmpty()) {
-            Toast.makeText(getContext(), "Task Allocated: " + taskDescription, Toast.LENGTH_SHORT).show();
-        } else {
+    // Handles task allocation process
+    private void handleTaskAllocation() {
+        String taskDescription = etTask.getText().toString().trim();
+
+        // Validation for empty task description
+        if (taskDescription.isEmpty()) {
             Toast.makeText(getContext(), "Enter Task Description", Toast.LENGTH_SHORT).show();
+            return;
         }
-    }
 
-    private void sendCommunication(String type) {
-        Toast.makeText(getContext(), "Sending " + type, Toast.LENGTH_SHORT).show();
-    }
-
-    private void submitFeedback() {
-        String feedback = etFeedback.getText().toString();
-        if (!feedback.isEmpty()) {
-            Toast.makeText(getContext(), "Feedback Submitted", Toast.LENGTH_SHORT).show();
+        boolean isTaskAllocated = viewModel.allocateTask(taskDescription);
+        if (isTaskAllocated) {
+            Toast.makeText(getContext(), "Task Allocated Successfully", Toast.LENGTH_SHORT).show();
+            etTask.setText(""); // Clear task input field after allocation
         } else {
-            Toast.makeText(getContext(), "Please enter feedback", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Task Allocation Failed", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    // Handles sending communication (Email, SMS, Notification)
+    private void handleCommunication(String type) {
+        boolean isSent = viewModel.sendCommunication(type);
+        if (isSent) {
+            Toast.makeText(getContext(), type + " Sent Successfully", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(getContext(), "Failed to Send " + type, Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    // Handles feedback submission
+    private void handleFeedbackSubmission() {
+        String feedback = etFeedback.getText().toString().trim();
+
+        // Validation for empty feedback
+        if (feedback.isEmpty()) {
+            Toast.makeText(getContext(), "Please enter feedback", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        boolean isFeedbackSubmitted = viewModel.submitFeedback(feedback);
+        if (isFeedbackSubmitted) {
+            Toast.makeText(getContext(), "Feedback Submitted Successfully", Toast.LENGTH_SHORT).show();
+            etFeedback.setText(""); // Clear feedback input field after submission
+        } else {
+            Toast.makeText(getContext(), "Feedback Submission Failed", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    // Clears the input fields after successful registration
+    private void clearInputFields() {
+        etName.setText("");
+        etContact.setText("");
+        etExpertise.setText("");
+        etAvailability.setText("");
     }
 }
