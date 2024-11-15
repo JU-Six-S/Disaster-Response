@@ -12,6 +12,9 @@ import com.jusixs.ndrs.data.repository.FeedbackRepository;
 import com.jusixs.ndrs.data.repository.TaskRepository;
 import com.jusixs.ndrs.ui.viewmodel.VolunteerTaskViewModel;
 
+/**
+ * Unit tests for the VolunteerTaskViewModel class.
+ */
 public class VolunteerTaskViewModelTest {
 
     private VolunteerTaskViewModel viewModel;
@@ -22,46 +25,59 @@ public class VolunteerTaskViewModelTest {
     @Mock
     private FeedbackRepository mockFeedbackRepository;
 
+    /**
+     * Sets up the test environment by initializing mock objects and the ViewModel.
+     */
     @Before
     public void setup() {
-        // Initialize the mock objects before each test
-        MockitoAnnotations.openMocks(this); // Recommended over initMocks()
+        MockitoAnnotations.openMocks(this); // Initialize mocks
         viewModel = new VolunteerTaskViewModel(mockTaskRepository, mockFeedbackRepository);
     }
 
+    /**
+     * Tests the successful registration of a volunteer with valid data.
+     */
     @Test
-    public void testRegisterVolunteer() {
-        // Arrange: Mock the addVolunteer method
+    public void testRegisterVolunteerWithValidData() {
+        // Arrange: Mock the addVolunteer method to return true for valid input
         when(mockTaskRepository.addVolunteer(anyString(), anyString(), anyString(), anyString())).thenReturn(true);
 
-        // Act: Call the method under test
+        // Act: Register the volunteer with valid input
         boolean isRegistered = viewModel.registerVolunteer("John Doe", "1234567890", "Medical", "Available");
 
-        // Assert: Verify the outcome
+        // Assert: Verify registration was successful and the method was called with correct arguments
         assertTrue(isRegistered);
         verify(mockTaskRepository).addVolunteer("John Doe", "1234567890", "Medical", "Available");
     }
 
+    /**
+     * Tests the registration of a volunteer with invalid data (e.g., empty name).
+     */
     @Test
-    public void testRegisterVolunteer_withInvalidData() {
+    public void testRegisterVolunteerWithInvalidData() {
         // Arrange: Mock the addVolunteer method to return false for invalid data
         when(mockTaskRepository.addVolunteer(anyString(), anyString(), anyString(), anyString())).thenReturn(false);
 
-        // Act: Call the method with invalid data (empty name)
+        // Act: Attempt to register a volunteer with an empty name
         boolean isRegistered = viewModel.registerVolunteer("", "1234567890", "Medical", "Available");
 
-        // Assert: Verify that registration fails due to invalid data
+        // Assert: Verify that registration fails due to invalid input
         assertFalse(isRegistered);
+        verify(mockTaskRepository).addVolunteer("", "1234567890", "Medical", "Available");
     }
 
+    /**
+     * Tests the registration of a volunteer when all fields are empty.
+     */
     @Test
-    public void testRegisterVolunteer_shouldNotRegisterWithEmptyFields() {
-        // Act: Attempt registration with empty fields
+    public void testRegisterVolunteerWithEmptyFields() {
+        // Act: Attempt registration with all fields empty
         boolean isRegistered = viewModel.registerVolunteer("", "", "", "");
 
-        // Assert: Ensure the registration fails when all fields are empty
+        // Assert: Ensure registration fails with empty fields
         assertFalse(isRegistered);
+        // No need to verify the mock method call since input validation fails at the ViewModel level
     }
 
-    // Additional test cases for other ViewModel methods...
+    // Additional test cases can be added here for other ViewModel methods...
 }

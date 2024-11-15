@@ -1,82 +1,96 @@
 package com.jusixs.ndrs.data.repository;
 
+import com.jusixs.ndrs.data.model.Task;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import com.jusixs.ndrs.data.model.Task;  // Import the custom Task class
-
+/**
+ * Repository for managing tasks and volunteer assignments.
+ */
 public class TaskRepository {
 
+    // List to hold tasks
     private List<Task> taskList = new ArrayList<>();
 
-    // Method to assign a task based on its description
+    /**
+     * Assigns a task based on its description.
+     *
+     * @param taskDescription The description of the task to assign.
+     * @return {@code true} if the task description is valid; {@code false} otherwise.
+     */
     public boolean assignTask(String taskDescription) {
-        // Validate the task description
         if (taskDescription == null || taskDescription.isEmpty()) {
-            return false; // Return false if the task description is invalid
+            return false; // Invalid task description
         }
-
-        // Proceed with assigning the task if the description is valid
-        return true;
+        return true; // Task description is valid
     }
 
-
-    // Method to add a volunteer (for example, adding to a list or database)
+    /**
+     * Adds a volunteer to the system.
+     *
+     * @param name         The name of the volunteer.
+     * @param contact      The contact information of the volunteer.
+     * @param expertise    The area of expertise of the volunteer.
+     * @param availability The availability status of the volunteer.
+     * @return {@code true} if the volunteer was added successfully; {@code false} otherwise.
+     */
     public boolean addVolunteer(String name, String contact, String expertise, String availability) {
-        // Validate the input fields for null or empty values
-        if (name == null || name.isEmpty() || contact == null || contact.isEmpty() ||
-                expertise == null || expertise.isEmpty() || availability == null || availability.isEmpty()) {
-            return false; // Return false if any field is invalid
+        if (name == null || name.isEmpty() ||
+                contact == null || contact.isEmpty() ||
+                expertise == null || expertise.isEmpty() ||
+                availability == null || availability.isEmpty()) {
+            return false; // Invalid volunteer data
         }
-
-        // Proceed with adding the volunteer if data is valid
-        return true; // Assuming data is added successfully, return true
+        return true; // Volunteer data is valid
     }
 
-
-    // Method to add a task (task name, description, assigned to person)
+    /**
+     * Adds a task to the task list.
+     *
+     * @param taskName   The name of the task.
+     * @param description The description of the task.
+     * @param assignedTo The person to whom the task is assigned.
+     * @return {@code true} if the task was added successfully; {@code false} otherwise.
+     */
     public boolean addTask(String taskName, String description, String assignedTo) {
+        if (taskName == null || taskName.isEmpty() ||
+                description == null || description.isEmpty() ||
+                assignedTo == null || assignedTo.isEmpty()) {
+            return false; // Invalid task data
+        }
+
         try {
-            // Validate inputs
-            if (taskName == null || taskName.isEmpty() || description == null || description.isEmpty() || assignedTo == null || assignedTo.isEmpty()) {
-                return false; // Return false if any input is invalid
-            }
-
-            // Create a new Task object
-            Task newTask = new Task(taskName, description, assignedTo, "Pending");  // Status defaulted to "Pending"
-
-            // Add the task to the list (or database)
-            taskList.add(newTask); // This is just a simulation, replace with database logic if needed
-
-            return true; // Return true indicating task was added successfully
+            Task newTask = new Task(taskName, description, assignedTo, "Pending");
+            taskList.add(newTask); // Add the task to the list
+            return true;
         } catch (Exception e) {
-            // Log the error or handle it appropriately
             System.out.println("Error while adding task: " + e.getMessage());
             return false;
         }
     }
 
-    // Method to update the status of an existing task
+    /**
+     * Updates the status of an existing task.
+     *
+     * @param taskName  The name of the task to update.
+     * @param newStatus The new status to set for the task.
+     * @return {@code true} if the task status was updated; {@code false} otherwise.
+     */
     public boolean updateTaskStatus(String taskName, String newStatus) {
-        try {
-            // Validate inputs
-            if (taskName == null || taskName.isEmpty() || newStatus == null || newStatus.isEmpty()) {
-                return false; // Return false if any input is invalid
-            }
+        if (taskName == null || taskName.isEmpty() || newStatus == null || newStatus.isEmpty()) {
+            return false; // Invalid input
+        }
 
-            // Find the task by its name
+        try {
             for (Task task : taskList) {
                 if (task.getName().equals(taskName)) {
-                    // If task found, update its status
-                    task.setStatus(newStatus);
-                    return true; // Return true indicating the status was updated
+                    task.setStatus(newStatus); // Update task status
+                    return true;
                 }
             }
-
-            // Return false if no task was found with the provided name
-            return false;
+            return false; // Task not found
         } catch (Exception e) {
-            // Log the error or handle it appropriately
             System.out.println("Error while updating task status: " + e.getMessage());
             return false;
         }

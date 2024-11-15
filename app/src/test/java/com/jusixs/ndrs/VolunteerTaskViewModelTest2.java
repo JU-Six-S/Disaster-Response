@@ -12,6 +12,9 @@ import com.jusixs.ndrs.data.repository.FeedbackRepository;
 import com.jusixs.ndrs.data.repository.TaskRepository;
 import com.jusixs.ndrs.ui.viewmodel.VolunteerTaskViewModel;
 
+/**
+ * Unit tests for the VolunteerTaskViewModel class.
+ */
 public class VolunteerTaskViewModelTest2 {
 
     private VolunteerTaskViewModel viewModel;
@@ -22,77 +25,102 @@ public class VolunteerTaskViewModelTest2 {
     @Mock
     private FeedbackRepository mockFeedbackRepository;
 
+    /**
+     * Sets up the test environment by initializing mock objects and the ViewModel.
+     */
     @Before
     public void setup() {
-        MockitoAnnotations.openMocks(this);
+        MockitoAnnotations.openMocks(this); // Initialize mock objects
         viewModel = new VolunteerTaskViewModel(mockTaskRepository, mockFeedbackRepository);
     }
 
+    /**
+     * Tests the successful registration of a volunteer with valid data.
+     */
     @Test
-    public void testRegisterVolunteer() {
-        // Mock the addVolunteer method to return true
+    public void testRegisterVolunteerWithValidData() {
+        // Arrange: Mock the addVolunteer method to return true for valid input
         when(mockTaskRepository.addVolunteer(anyString(), anyString(), anyString(), anyString())).thenReturn(true);
 
-        // Call the method and assert the result
+        // Act: Register the volunteer
         boolean isRegistered = viewModel.registerVolunteer("John Doe", "1234567890", "Medical", "Available");
-        assertTrue(isRegistered);
 
-        // Verify that the addVolunteer method was called with correct arguments
+        // Assert: Verify that registration was successful
+        assertTrue(isRegistered);
         verify(mockTaskRepository).addVolunteer("John Doe", "1234567890", "Medical", "Available");
     }
 
+    /**
+     * Tests registration of a volunteer with invalid data (e.g., empty name).
+     */
     @Test
-    public void testRegisterVolunteer_withInvalidData() {
-        // Mock the addVolunteer method to return false for invalid data
+    public void testRegisterVolunteerWithInvalidData() {
+        // Arrange: Mock the addVolunteer method to return false for invalid data
         when(mockTaskRepository.addVolunteer(anyString(), anyString(), anyString(), anyString())).thenReturn(false);
 
-        // Attempt to register with invalid data (empty name)
+        // Act: Attempt to register a volunteer with an empty name
         boolean isRegistered = viewModel.registerVolunteer("", "1234567890", "Medical", "Available");
+
+        // Assert: Ensure registration fails
         assertFalse(isRegistered);
     }
 
+    /**
+     * Tests registration of a volunteer with all empty fields.
+     */
     @Test
-    public void testRegisterVolunteer_shouldNotRegisterWithEmptyFields() {
-        // Attempt to register with empty fields
+    public void testRegisterVolunteerWithEmptyFields() {
+        // Act: Attempt registration with empty fields
         boolean isRegistered = viewModel.registerVolunteer("", "", "", "");
+
+        // Assert: Ensure registration fails with empty fields
         assertFalse(isRegistered);
     }
 
+    /**
+     * Tests updating the task status with valid input.
+     */
     @Test
-    public void testUpdateTaskStatus() {
-        // Mock updateTaskStatus method to return true
+    public void testUpdateTaskStatusWithValidData() {
+        // Arrange: Mock updateTaskStatus method to return true
         when(mockTaskRepository.updateTaskStatus(anyString(), anyString())).thenReturn(true);
 
-        // Call the method and verify the status update
+        // Act: Update task status
         boolean isUpdated = viewModel.updateTaskStatus("Task1", "Completed");
-        assertTrue(isUpdated);
 
-        // Verify that the updateTaskStatus method was called with correct arguments
+        // Assert: Verify that status update was successful
+        assertTrue(isUpdated);
         verify(mockTaskRepository).updateTaskStatus("Task1", "Completed");
     }
 
+    /**
+     * Tests assigning a task with a valid description.
+     */
     @Test
-    public void testAssignTask() {
-        // Mock assignTask method to return true
+    public void testAssignTaskWithValidDescription() {
+        // Arrange: Mock assignTask method to return true
         when(mockTaskRepository.assignTask(anyString())).thenReturn(true);
 
-        // Assign task and verify the result
+        // Act: Assign a task
         boolean isAssigned = viewModel.assignTask("New Task Description");
-        assertTrue(isAssigned);
 
-        // Verify that the assignTask method was called
+        // Assert: Verify the task was assigned successfully
+        assertTrue(isAssigned);
         verify(mockTaskRepository).assignTask("New Task Description");
     }
 
+    /**
+     * Tests assigning a task with an invalid (empty) description.
+     */
     @Test
-    public void testAssignTask_withInvalidDescription() {
-        // Mock the assignTask method to return false
+    public void testAssignTaskWithInvalidDescription() {
+        // Arrange: Mock assignTask method to return false for invalid input
         when(mockTaskRepository.assignTask(anyString())).thenReturn(false);
 
-        // Try to assign an invalid task
+        // Act: Attempt to assign a task with an empty description
         boolean isAssigned = viewModel.assignTask("");
+
+        // Assert: Ensure task assignment fails
         assertFalse(isAssigned);
     }
-
-    // Add more test cases as needed
 }
