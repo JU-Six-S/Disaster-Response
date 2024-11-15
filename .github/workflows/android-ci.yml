@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - nasrin-report-incident
   pull_request:
     branches:
       - main
