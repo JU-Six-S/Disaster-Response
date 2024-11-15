@@ -26,6 +26,8 @@ import com.jusixs.ndrs.data.model.Incident;
 import com.jusixs.ndrs.data.repository.IncidentRepository;
 import com.jusixs.ndrs.ui.viewmodel.IncidentViewModel;
 
+import java.util.Objects;
+
 @RunWith(RobolectricTestRunner.class) // Use RobolectricTestRunner
 @Config(sdk = {30})
 public class IncidentViewModelTest {
@@ -45,7 +47,7 @@ public class IncidentViewModelTest {
     @Test
     public void testReportIncident() {
         // Create dummy incident data
-        Incident dummyIncident = new Incident("Flood", "Water", "Chicago", "2024-11-10T08:30", "200 sq ft");
+        Incident dummyIncident = new Incident("Flood", "Water", "Chicago", "2024-11-10T08:30", "200 sq ft", "Rescue and medical assistance");
 
         // Call the reportIncident method
         viewModel.reportIncident(dummyIncident);
@@ -54,13 +56,13 @@ public class IncidentViewModelTest {
         verify(mockRepository).storeIncident(dummyIncident);
 
         // Verify that incidentLiveData in ViewModel was set with dummyIncident
-        //assertEquals(dummyIncident, viewModel.getIncidentLiveData().getValue());
+       //assertEquals(dummyIncident, viewModel.getIncidentLiveData().getValue());
     }
 
     @Test
     public void testReportIncident_validIncident() {
         // Create a valid dummy incident
-        Incident dummyIncident = new Incident("Flood", "Water", "Chicago", "2024-11-10T08:30", "200 sq ft");
+        Incident dummyIncident = new Incident("Flood", "Water", "Chicago", "2024-11-10T08:30", "200 sq ft",null);
 
         // Call reportIncident with the valid incident
         viewModel.reportIncident(dummyIncident);
@@ -69,7 +71,7 @@ public class IncidentViewModelTest {
         verify(mockRepository).storeIncident(dummyIncident);
 
         // Verify incidentLiveData is set with the correct incident
-        //assertEquals(dummyIncident, viewModel.getIncidentLiveData().getValue());
+        //assertNull(Objects.requireNonNull(viewModel.getIncidentLiveData().getValue()).getAssistanceType());
     }
 
     @Test
@@ -99,7 +101,45 @@ public class IncidentViewModelTest {
         //assertEquals(dummyIncident, viewModel.getIncidentLiveData().getValue());
     }
 
+    @Test
+    public void testReportIncident_uniqueIncident() {
+        // Create a dummy incident
+        Incident dummyIncident = new Incident(
+                "Flood", "Water", "Chicago", "2024-11-10T08:30", "200 sq ft", "Rescue"
+        );
 
+        // Mock the behavior of isIncidentReported to return false
+        when(mockRepository.isIncidentReported("tornado", "Texas", "2024-11-10T08:30")).thenReturn(false);
+
+        // Call reportIncident
+        viewModel.reportIncident(dummyIncident);
+
+        // Verify storeIncident is called
+        verify(mockRepository).storeIncident(dummyIncident);
+
+        // Verify LiveData is updated
+        assertEquals(dummyIncident, viewModel.getIncidentLiveData().getValue());
+    }
+
+    @Test
+    public void testReportIncident_redundantIncident() {
+        // Create a dummy incident
+        Incident dummyIncident = new Incident(
+                "Flood", "Water", "Chicago", "2024-11-10T08:30", "200 sq ft", "Rescue"
+        );
+
+        // Mock the behavior of isIncidentReported to return true
+        when(mockRepository.isIncidentReported("Flood", "Chicago", "2024-11-10T08:30")).thenReturn(true);
+
+        // Call reportIncident
+        viewModel.reportIncident(dummyIncident);
+
+        // Verify storeIncident is not called
+        verify(mockRepository, Mockito.never()).storeIncident(dummyIncident);
+
+        // Verify LiveData is not updated
+        assertNull(viewModel.getIncidentLiveData().getValue());
+    }
 //    @Test
 //    public void testFetchIncident() {
 //        Incident dummyIncident = new Incident("Flood", "Water", "Chicago", "2024-11-10T08:30", "200 sq ft");

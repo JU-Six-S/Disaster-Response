@@ -22,6 +22,12 @@ public class IncidentRepository {
         return incidentLiveData;
     }
 
+    public boolean isIncidentReported(String name, String location, String time) {
+        // Implement logic to check if an incident is already reported.
+        // This could involve querying a database or data source.
+        return false; // Return true if reported, false otherwise
+    }
+
     public Incident getIncident(String name) {
         return incidentDatabase.get(name);
     }
