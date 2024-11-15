@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"com.jusixs.ndrs.data.model","l":"Incident"},{"p":"com.jusixs.ndrs.data.repository","l":"IncidentRepository"},{"p":"com.jusixs.ndrs.ui.viewmodel","l":"IncidentViewModel"},{"p":"com.jusixs.ndrs","l":"MainActivity"}];updateSearchResults();
