@@ -20,11 +20,11 @@ jobs:
         uses: actions/checkout@v3
 
       # Set up JDK 11 (required for Android Gradle plugin)
-      - name: Set up JDK 11
+      - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
           distribution: 'zulu'
-          java-version: '11'
+          java-version: '17'
 
       # Cache Gradle dependencies to speed up builds
       - name: Cache Gradle Wrapper
@@ -44,6 +44,8 @@ jobs:
           api-level: 34
           build-tools: 34.0.0
           target-sdk: 34
+          cmdline-tools-version: latest
+          accept-android-sdk-licenses: true
 
       # Verify Gradle Wrapper
       - name: Verify Gradle Wrapper
