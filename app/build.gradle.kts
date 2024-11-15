@@ -29,6 +29,7 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+    buildToolsVersion = "34.0.0"
 }
 
 dependencies {
@@ -36,6 +37,11 @@ dependencies {
     implementation(libs.material)
     implementation(libs.activity)
     implementation(libs.constraintlayout)
+    implementation(fileTree(mapOf(
+        "dir" to "C:\\Users\\nasri\\AppData\\Local\\Android\\Sdk\\platforms\\android-34",
+        "include" to listOf("*.aar", "*.jar"),
+        //"exclude" to listOf()
+    )))
 
     // JUnit 5 for unit testing
     testImplementation("org.junit.jupiter:junit-jupiter:5.7.1")

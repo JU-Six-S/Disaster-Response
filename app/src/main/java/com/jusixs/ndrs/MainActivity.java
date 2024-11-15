@@ -1,6 +1,5 @@
 package com.jusixs.ndrs;
 
-
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
