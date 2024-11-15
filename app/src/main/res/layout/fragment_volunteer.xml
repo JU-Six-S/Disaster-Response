@@ -1,0 +1,170 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- ViewFlipper to toggle between different sections -->
+    <ViewFlipper
+        android:id="@+id/viewFlipper"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/navigationButtons">
+
+        <!-- Section 1: Register Volunteer/NGO -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Register Volunteer/NGO"
+                android:textSize="20sp"
+                android:paddingBottom="16dp" />
+
+            <EditText
+                android:id="@+id/et_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Name" />
+
+            <EditText
+                android:id="@+id/et_contact"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Contact Number"
+                android:inputType="phone" />
+
+            <EditText
+                android:id="@+id/et_expertise"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Area of Expertise" />
+
+            <EditText
+                android:id="@+id/et_availability"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Availability" />
+
+            <Button
+                android:id="@+id/btn_register"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Register" />
+        </LinearLayout>
+
+        <!-- Section 2: Allocate Task -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Allocate Task"
+                android:textSize="20sp"
+                android:paddingBottom="16dp" />
+
+            <EditText
+                android:id="@+id/et_task"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Task Description" />
+
+            <Button
+                android:id="@+id/btn_allocate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Allocate Task" />
+        </LinearLayout>
+
+        <!-- Section 3: Communication and Updates -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Communication and Updates"
+                android:textSize="20sp"
+                android:paddingBottom="16dp" />
+
+            <Button
+                android:id="@+id/btn_send_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Send Email Update" />
+
+            <Button
+                android:id="@+id/btn_send_sms"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Send SMS Update" />
+
+            <Button
+                android:id="@+id/btn_send_notification"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Send App Notification" />
+        </LinearLayout>
+
+        <!-- Section 4: Feedback Collection -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Feedback Collection"
+                android:textSize="20sp"
+                android:paddingBottom="16dp" />
+
+            <EditText
+                android:id="@+id/et_feedback"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter your feedback" />
+
+            <Button
+                android:id="@+id/btn_submit_feedback"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Submit Feedback" />
+        </LinearLayout>
+
+    </ViewFlipper>
+
+    <!-- Bottom navigation to switch between sections -->
+    <LinearLayout
+        android:id="@+id/navigationButtons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="8dp">
+
+        <Button
+            android:id="@+id/btn_previous"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Previous" />
+
+        <Button
+            android:id="@+id/btn_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Next" />
+    </LinearLayout>
+
+</RelativeLayout>
