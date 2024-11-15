@@ -68,7 +68,7 @@ public class Donation {
     /**
      * Gets the payment method used for the donation.
      *
-     * @return the payment method (e.g., bKash, Nagad)
+     * @return the payment method (e.g., bKash, Nagad, Rocket)
      */
     public String getPaymentMethod() {
         return paymentMethod;
