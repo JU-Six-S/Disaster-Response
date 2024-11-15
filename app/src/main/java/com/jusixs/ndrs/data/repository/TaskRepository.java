@@ -11,25 +11,28 @@ public class TaskRepository {
 
     // Method to assign a task based on its description
     public boolean assignTask(String taskDescription) {
-        // Check if the task description is valid
-        if (taskDescription != null && !taskDescription.isEmpty()) {
-            // Simulate assigning a task (could be more complex in real use cases)
-            return true;
+        // Validate the task description
+        if (taskDescription == null || taskDescription.isEmpty()) {
+            return false; // Return false if the task description is invalid
         }
-        return false;
+
+        // Proceed with assigning the task if the description is valid
+        return true;
     }
+
 
     // Method to add a volunteer (for example, adding to a list or database)
     public boolean addVolunteer(String name, String contact, String expertise, String availability) {
-        // Check if the volunteer details are valid (you can add more validation here)
-        if (name != null && !name.isEmpty() && contact != null && !contact.isEmpty() &&
-                expertise != null && !expertise.isEmpty() && availability != null && !availability.isEmpty()) {
-
-            // Simulate adding the volunteer (this could be adding to a list or database)
-            return true;
+        // Validate the input fields for null or empty values
+        if (name == null || name.isEmpty() || contact == null || contact.isEmpty() ||
+                expertise == null || expertise.isEmpty() || availability == null || availability.isEmpty()) {
+            return false; // Return false if any field is invalid
         }
-        return false;
+
+        // Proceed with adding the volunteer if data is valid
+        return true; // Assuming data is added successfully, return true
     }
+
 
     // Method to add a task (task name, description, assigned to person)
     public boolean addTask(String taskName, String description, String assignedTo) {
