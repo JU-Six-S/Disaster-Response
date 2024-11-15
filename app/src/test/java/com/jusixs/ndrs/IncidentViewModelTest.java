@@ -56,7 +56,7 @@ public class IncidentViewModelTest {
         verify(mockRepository).storeIncident(dummyIncident);
 
         // Verify that incidentLiveData in ViewModel was set with dummyIncident
-       //assertEquals(dummyIncident, viewModel.getIncidentLiveData().getValue());
+        //assertEquals(dummyIncident, viewModel.getIncidentLiveData().getValue());
     }
 
     @Test
@@ -140,17 +140,5 @@ public class IncidentViewModelTest {
         // Verify LiveData is not updated
         assertNull(viewModel.getIncidentLiveData().getValue());
     }
-//    @Test
-//    public void testFetchIncident() {
-//        Incident dummyIncident = new Incident("Flood", "Water", "Chicago", "2024-11-10T08:30", "200 sq ft");
-//
-//        // Define behavior for the mock repository to return the dummy incident
-//        when(mockRepository.getIncident("Flood")).thenReturn(dummyIncident);
-//
-//        // Fetch incident through ViewModel
-//        viewModel.fetchIncident("Flood");
-//
-//        // Verify that incidentLiveData in ViewModel was set with dummyIncident
-//        assertEquals(dummyIncident, viewModel.getIncidentLiveData().getValue());
-//    }
+
 }
