@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+android:padding="16dp">
+
+<!-- Alert Type Selector -->
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Select Alert Type:"
+    android:textSize="16sp"
+    android:layout_marginBottom="8dp"/>
+
+<RadioGroup
+    android:id="@+id/alertTypeGroup"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginBottom="16dp">
+
+    <RadioButton
+        android:id="@+id/generalAlert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="General"
+        android:checked="true" />
+
+    <RadioButton
+        android:id="@+id/emergencyAlert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Emergency" />
+</RadioGroup>
+
+<!-- Message Input -->
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Enter Alert Message:"
+    android:textSize="16sp"
+    android:layout_marginBottom="8dp"/>
+
+<EditText
+    android:id="@+id/messageInput"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="Enter alert message"
+    android:inputType="textMultiLine"
+    android:lines="3"
+    android:gravity="top"
+    android:layout_marginBottom="16dp" />
+
+<!-- Audience Selector -->
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Select Audience:"
+    android:textSize="16sp"
+    android:layout_marginBottom="8dp"/>
+
+<RadioGroup
+    android:id="@+id/audienceGroup"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginBottom="16dp">
+
+    <RadioButton
+        android:id="@+id/citizens"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Citizens" />
+
+    <RadioButton
+        android:id="@+id/firstResponders"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="First Responders" />
+
+    <RadioButton
+        android:id="@+id/both"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Both"
+        android:checked="true" />
+</RadioGroup>
+
+<!-- Send Button -->
+<Button
+    android:id="@+id/sendAlertButton"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Send Alert"
+    android:backgroundTint="@color/material_dynamic_primary10"
+    android:textColor="@android:color/white"
+    android:layout_marginTop="24dp" />
+
+</LinearLayout>

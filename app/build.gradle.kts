@@ -38,6 +38,19 @@ dependencies {
     implementation(libs.activity)
     implementation(libs.constraintlayout)
     testImplementation(libs.junit)
+    testImplementation(libs.junit.jupiter)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+    // JUnit for unit testing
+    testImplementation ("junit:junit:4.13.2")
+
+
+    // AndroidX Core Testing for InstantTaskExecutorRule
+    testImplementation ("androidx.arch.core:core-testing:2.1.0")
+
+
+    // Mockito for mocking
+    testImplementation ("org.mockito:mockito-core:4.5.1")
+
+
 }
